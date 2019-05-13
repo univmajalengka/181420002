@@ -60,11 +60,7 @@
 <div class="background">
   <img src="<?php echo base_url(); ?>/assets/img/img11.jpg" alt="" class="responsive-img">
 </div>
-<a href="">
-  <img src="<?php echo base_url(); ?>/assets/img/img29.jpg" alt="" class="circle">
-</a>
-<span class="white-text name">Techievivek</span>
-<span class="white-text email">Techievivek123@gmail.com</span>
+
     </div>
   </li>
 
@@ -74,16 +70,16 @@
 </li>
 
 <li>
-    <a href="<?php echo site_url('homepage/transaksi')?>"><i class="material-icons blue-text">description</i>Transaksi
+    <a href="<?php echo site_url('homepage/transaksi')?>"><i class="material-icons blue-text">dashboard</i>Transaksi
     </a>
 </li>
 
 <li>
-    <a href="<?php echo site_url('homepage/siswa')?>"><i class="material-icons blue-text">image</i>Siswa
+    <a href="<?php echo site_url('homepage/siswa')?>"><i class="material-icons blue-text">dashboard</i>Siswa
     </a>
 </li>
 <li>
-    <a href="<?php echo site_url('homepage/buku')?>"><i class="material-icons blue-text">trending_up</i>Buku
+    <a href="<?php echo site_url('homepage/buku')?>"><i class="material-icons blue-text">dashboard</i>Buku
     </a>
 </li>
 <div class="divider"></div>
@@ -100,7 +96,7 @@
         <div class="row col-md-6 col-md-offset-2 custyle">
         <table class="table table-striped custab">
         <thead>
-        <a href="<?php echo site_url('homepage/tambah_siswa') ?>" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new Siswa</a>
+        <a href="<?php echo site_url('homepage/tambah_siswa') ?>" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new Transaksi</a>
             <tr>
                 <th>Id Transaksi</th>
                 <th>Id buku</th>

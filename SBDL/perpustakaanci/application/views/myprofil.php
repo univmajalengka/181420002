@@ -59,11 +59,7 @@
 <div class="background">
   <img src="<?php echo base_url(); ?>/assets/img/img11.jpg" alt="" class="responsive-img">
 </div>
-<a href="">
-  <img src="<?php echo base_url(); ?>/assets/img/img29.jpg" alt="" class="circle">
-</a>
-<span class="white-text name">Techievivek</span>
-<span class="white-text email">Techievivek123@gmail.com</span>
+
     </div>
   </li>
 
