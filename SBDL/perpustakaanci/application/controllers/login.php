@@ -5,27 +5,37 @@
         public function index(){
             $this->load->view('signin');
         }
-        public function cekLogin(){
+        
+        function aksi_login(){
             $username = $this->input->post('username');
             $password = $this->input->post('password');
-            $this->load->model('model_login');
-            if($this->model_login->ambillogin($username,$password)==10){
-                $this->db->where('username',$username);
-                $this->db->where('password',$password);
-                $query = $this->db->get('petugas');
-                
-                // $this->load->model('model_profil');
-                // $x['data']=$this->model_profil->show_profil($username);
-                // $this->load->view('myprofil',$x);
-                // echo site_url('homepage');
-                redirect('homepage/edit_petugas/'.$username);
+            $where = array (
+                'username' => $username,
+                'password' => md5($password)
+            );
+            $this->load->model("model_login");
+            $cek = $this->model_login->cek_login('petugas',$where)->num_rows();
+            if($cek>0){
+                $us=$this->model_login->cek_login('petugas',$where);
+                foreach ($us->result() as $row){
+                    $id_petugas=$row->id_petugas;
+                }
+                $data_session=array(
+                    'id_petugas'=>$id_petugas,
+                    'nama'=>$username,
+                    'status'=>"login"
+                    
+                );
+                $this->session->set_userdata($data_session);
+                redirect("homepage");
             }else{
+                $this->session->set_flashdata('info','Maaf username dan password anda salah!');
                 redirect('login');
             }
         }
         public function logout(){
-            $this->session->set_userdata('username',FALSE);   
-            $this->session->unset_userdata('username');
+            // $this->session->set_userdata('username',FALSE);   
+            // $this->session->unset_userdata('username');
             $this->session->sess_destroy();
             redirect('login');
         }

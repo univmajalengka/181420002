@@ -127,10 +127,12 @@
             <input name="id_siswa" class="form-control" placeholder="Id Siswa" type="number">
         </div> <!-- form-group// -->
         <div class="form-group input-group">
-            <input name="tgl_pinjam" class="form-control" type="date">
+            <label for="">Tgl Pinjam</label>
+            <input name="tgl_pinjam" class="form-control" type="date" placeholder="Tgl Pinjam">
         </div> <!-- form-group// -->
         <div class="form-group input-group">
-            <input name="tgl_kembali" class="form-control" type="date">
+            <label for="">Tgl Kembali</label>
+            <input name="tgl_kembali" class="form-control" type="date" placeholder="Tgl Pinjam">
         </div> <!-- form-group// -->
          <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Create Transaksi</button>
@@ -148,7 +150,7 @@
 </div>
 
 <div class="fixed-action-btn">
-  <a href="" class="btn-floating btn-large red white-text pulse tooltipped" data-tooltip="Add New Post" data-position="left"><i class="material-icons ">edit</i></a>
+  <a href="<?php echo site_url('homepage/tambah_transaksi') ?>" class="btn-floating btn-large red white-text pulse tooltipped" data-tooltip="Add New Post" data-position="left"><i class="material-icons ">edit</i></a>
 </div>
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/jquery.js"></script>

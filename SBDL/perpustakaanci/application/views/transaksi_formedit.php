@@ -113,7 +113,7 @@
     <hr>
     <div class="card bg-light">
     <article class="card-body mx-auto" style="max-width: 400px;">
-        <h4 class="card-title mt-3 text-center">Edit Siswa</h4>
+        <h4 class="card-title mt-3 text-center">Edit</h4>
         <p class="divider-text">
             <span class="bg-light">*</span>
         </p>
@@ -206,7 +206,7 @@
   </div>
 </div>
 <div class="fixed-action-btn">
-  <a href="" class="btn-floating btn-large red white-text pulse tooltipped" data-tooltip="Add New Post" data-position="left"><i class="material-icons ">edit</i></a>
+  <a href="<?php echo site_url('homepage/tambah_transaksi') ?>" class="btn-floating btn-large red white-text pulse tooltipped" data-tooltip="Add New Post" data-position="left"><i class="material-icons ">edit</i></a>
 </div>
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/jquery.js"></script>

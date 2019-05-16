@@ -96,7 +96,7 @@
         <div class="row col-md-6 col-md-offset-2 custyle">
         <table class="table table-striped custab">
         <thead>
-        <a href="<?php echo site_url('homepage/tambah_siswa') ?>" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new Transaksi</a>
+        <a href="<?php echo site_url('homepage/tambah_transaksi') ?>" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new Transaksi</a>
             <tr>
                 <th>Id Transaksi</th>
                 <th>Id buku</th>
@@ -131,7 +131,7 @@
   </div>
 </div>
 <div class="fixed-action-btn">
-  <a href="" class="btn-floating btn-large red white-text pulse tooltipped" data-tooltip="Add New Post" data-position="left"><i class="material-icons ">edit</i></a>
+  <a href="<?php echo site_url('homepage/tambah_transaksi') ?>" class="btn-floating btn-large red white-text pulse tooltipped" data-tooltip="Add New Post" data-position="left"><i class="material-icons ">edit</i></a>
 </div>
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/jquery.js"></script>

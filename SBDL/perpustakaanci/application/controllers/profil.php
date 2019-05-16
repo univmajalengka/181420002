@@ -7,7 +7,11 @@
             $this->load->model('model_profil');
         }
         public function index(){
-            $x['data']=$this->model_profil->show_profil();
+            $username = $this->session->userdata('nama');
+            $where=array(
+                username=>$username
+            );
+            $x['data']=$this->model_profil->show_profil("petugas",$where);
             // redirect('homepage');
             $this->load->view('myprofil',$x);
         }

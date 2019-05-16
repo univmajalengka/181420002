@@ -21,6 +21,11 @@
                 redirect('login');
             }
         }
+        function cek_login($table,$where){
+            return $this->db->get_where($table,$where);
+                
+            
+        }
         public function keamanan(){
             $username = $this->session->userdata('username');
             if(empty($username)){

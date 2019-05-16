@@ -28,7 +28,7 @@
                     <div class="logo ">
                         Perpustakaan
                     </div>
-                    <form class="form-signin" action="<?php echo site_url('login/ceklogin') ?>" method="post">
+                    <form class="form-signin" action="<?php echo site_url('login/aksi_login') ?>" method="post">
                     <?php 
                         $info= $this->session->flashdata('info');
                         if(!empty($info)){

@@ -62,11 +62,11 @@
             <input class="form-control" name="tanggal" type="date">
         </div> <!-- form-group// -->       
          <!-- form-group end.// -->
-        <div class="form-group input-group">
+         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
             </div>
-            <input nama="password" class="form-control" placeholder="Create password" type="password">
+            <input name="password" class="form-control" placeholder="Create Password" type="password">
         </div> <!-- form-group// -->
         <div class="form-group input-group">
             <div class="input-group-prepend">

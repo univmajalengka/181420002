@@ -2,19 +2,33 @@
     class homepage extends CI_Controller{
         public function __construct(){
             parent::__construct();
-            $this->load->library('grocery_CRUD');
+            //$this->load->library('grocery_CRUD');
+            
         }
                 
         function index()
         {
+            if($this->session->userdata('status')!="login"){
+                redirect("login");
+            }else{                
+                $where = array(
+                    'id_petugas'=>$this->session->userdata('id_petugas')
+                );
+                $this->load->model('model_petugas');
+                $data['petugas'] = $this->model_petugas->edit_data($where,'petugas')->result();
+                // redirect('homepage');
+                $this->load->view('myprofil',$data);
+            }
             
-            $this->load->view('myprofil');
         }
-        function profil(){
-            $this->load->model('model_profil');
-            $x['data']=$this->model_profil->show_profil();
-            //redirect('homepage');
-            $this->load->view('myprofil',$x);
+        function profil(){            
+            $where = array(
+                'id_petugas'=>$this->session->userdata('id_petugas')
+            );
+            $this->load->model('model_petugas');
+            $data['petugas'] = $this->model_petugas->edit_data($where,'petugas')->result();
+            // redirect('homepage');
+            $this->load->view('myprofil',$data);
             
         }
         function edit_petugas($username){
@@ -30,21 +44,27 @@
             $password = $this->input->post('password');
             $nama = $this->input->post('nama');
             $tgl_lahir = $this->input->post('tgl_lahir');
+            if($password!=""){
+                $data = array(
+                    'id_petugas'=>$id_petugas,
+                    'email'=>$email,
+                    'username'=>$username,
+                    'password'=>$password,
+                    'nama'=>$nama,
+                    'tgl_lahir'=>$tgl_lahir
+                );
+                $where = array(
+                    'id_petugas'=>$id_petugas
+                );
+                $this->load->model('model_petugas');
+                $this->model_buku->update_data($where,$data,'petugas');
+                redirect('homepage/profil');
+            }else{
+                $this->session->set_flashdata('gagal_edit','Update gagal');
+                
+                redirect('homepage/profil');
+            }
             
-            $data = array(
-                'id_petugas'=>$id_petugas,
-                'email'=>$email,
-                'username'=>$username,
-                'password'=>$password,
-                'nama'=>$nama,
-                'tgl_lahir'=>$tgl_lahir
-            );
-            $where = array(
-                'id_petugas'=>$id_petugas
-            );
-            $this->load->model('model_petugas');
-            $this->model_buku->update_data($where,$data,'petugas');
-            redirect('homepage/profil');
             
         }
         function transaksi(){
