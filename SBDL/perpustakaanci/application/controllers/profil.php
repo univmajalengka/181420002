@@ -12,7 +12,7 @@
                 username=>$username
             );
             $x['data']=$this->model_profil->show_profil("petugas",$where);
-            // redirect('homepage');
+            // redirect('homeadmin');
             $this->load->view('myprofil',$x);
         }
     }

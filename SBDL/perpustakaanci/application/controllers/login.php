@@ -27,7 +27,7 @@
                     
                 );
                 $this->session->set_userdata($data_session);
-                redirect("homepage");
+                redirect("homeadmin");
             }else{
                 $this->session->set_flashdata('info','Maaf username dan password anda salah!');
                 redirect('login');

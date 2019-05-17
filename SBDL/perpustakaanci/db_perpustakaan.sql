@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Bulan Mei 2019 pada 14.04
+-- Waktu pembuatan: 17 Bulan Mei 2019 pada 09.01
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -121,17 +121,24 @@ CREATE TABLE `petugas` (
 --
 
 INSERT INTO `petugas` (`id_petugas`, `email`, `username`, `password`, `nama`, `tgl_lahir`) VALUES
-(1, '', 'jhonson', 'admin', 'jhonson', '2019-03-11'),
-(2, '', 'grock', 'admin', 'grock', '2019-03-11'),
-(3, '', 'mino', 'admin', 'mino', '2019-03-11'),
-(4, '', 'hilda', 'admin', 'hilda', '2019-03-11'),
-(5, '', 'kaja', 'admin', 'kaja', '2019-03-11'),
-(6, '', 'lollita', 'admin', 'lollita', '2019-03-11'),
-(7, '', 'moscov', 'admin', 'moscov', '2019-03-11'),
-(8, '', 'kagura', 'admin', 'kagura', '2019-03-11'),
-(9, '', 'leo', 'admin', 'leo', '2019-03-11'),
-(10, '', 'martis', 'admin', 'martis', '2019-03-11'),
-(31, 'iwan.wansyur20@gmail.com', 'rty', 'd41d8cd98f00b204e9800998ecf8427e', 'iwan wansyur', '2019-05-06');
+(1, 'jhonson@gmail.com', 'jhonson', '177544aa797af6f322f8caa5e80e7f24', 'jhonson', '2019-03-11'),
+(2, 'grock@gmail.com', 'grock', '177544aa797af6f322f8caa5e80e7f24', 'grock', '2019-03-11'),
+(3, 'mino@gmail.com', 'mino', '177544aa797af6f322f8caa5e80e7f24', 'mino', '2019-03-11'),
+(4, 'hilda@gmail.com', 'hilda', '177544aa797af6f322f8caa5e80e7f24', 'hilda', '2019-03-11'),
+(5, 'kaja@gmail.com', 'kaja', '177544aa797af6f322f8caa5e80e7f24', 'kaja', '2019-03-11'),
+(6, 'lollita@gmail.com', 'lollita', '177544aa797af6f322f8caa5e80e7f24', 'lollita', '2019-03-11'),
+(7, 'moscov@gmail.com', 'moscov', '177544aa797af6f322f8caa5e80e7f24', 'moscov', '2019-03-11'),
+(8, 'kagura@gmail.com', 'kagura', '177544aa797af6f322f8caa5e80e7f24', 'kagura', '2019-03-11'),
+(9, 'leo@gmail.com', 'leo', '177544aa797af6f322f8caa5e80e7f24', 'leo', '2019-03-11'),
+(10, 'martis@gmail.com', 'martis', '177544aa797af6f322f8caa5e80e7f24', 'martis', '2019-03-11'),
+(31, 'iwan.wansyur20@gmail.com', 'rty', 'd41d8cd98f00b204e9800998ecf8427e', 'iwan wansyur', '2019-05-06'),
+(32, 'ssssssssssssssd@gmail.com', 'ione', 'd41d8cd98f00b204e9800998ecf8427e', 'sssssssssssssssd', '2019-05-05'),
+(33, 'qwerg@gmail.com', 'qwerg', 'd41d8cd98f00b204e9800998ecf8427e', 'qwerg', '2019-05-06'),
+(34, 'qwerg@gmail.com', 'qwerg', 'PASSWORD(\"\")', 'qwerg', '2019-05-06'),
+(35, 'qwerg@gmail.com', 'qwerg', 'd41d8cd98f00b204e9800998ecf8427e', 'qwerg', '2019-05-06'),
+(36, 'fgh@gmail.com', 'fgh', 'fgh', 'fgh', '2019-05-07'),
+(37, 'jo@gmail.com', 'jo', '674f33841e2309ffdd24c85dc3b999de', 'jo', '2001-10-10'),
+(38, 'sed@gmail.com', 'sed', '177544aa797af6f322f8caa5e80e7f24', 'sed', '2001-12-12');
 
 -- --------------------------------------------------------
 
@@ -213,7 +220,6 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `id_petugas`, `id_pinjam`, `id_siswa`, `id_buku`, `judul`, `tgl_pinjam`, `tgl_kembali`) VALUES
-(1, 1, 1, 1, '', '', '0000-00-00', '0000-00-00'),
 (2, 1, 2, 2, '', '', '0000-00-00', '0000-00-00'),
 (3, 1, 3, 3, '', '', '0000-00-00', '0000-00-00'),
 (4, 1, 4, 3, '', '', '0000-00-00', '0000-00-00'),
@@ -292,7 +298,7 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT untuk tabel `petugas`
 --
 ALTER TABLE `petugas`
-  MODIFY `id_petugas` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_petugas` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT untuk tabel `rak`
@@ -304,13 +310,13 @@ ALTER TABLE `rak`
 -- AUTO_INCREMENT untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id_siswa` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_siswa` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

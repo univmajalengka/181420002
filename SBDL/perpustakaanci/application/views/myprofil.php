@@ -81,21 +81,21 @@
   </li>
 
   <li>
-  <a href="<?php echo site_url('homepage/profil')?>"><i class="material-icons blue-text">dashboard</i>My profil
+  <a href="<?php echo site_url('homeadmin/profil')?>"><i class="material-icons blue-text">dashboard</i>My profil
   </a>
 </li>
 
 <li>
-    <a href="<?php echo site_url('homepage/transaksi')?>"><i class="material-icons blue-text">dashboard</i>Transaksi
+    <a href="<?php echo site_url('homeadmin/transaksi')?>"><i class="material-icons blue-text">dashboard</i>Transaksi
     </a>
 </li>
 
 <li>
-    <a href="<?php echo site_url('homepage/siswa')?>"><i class="material-icons blue-text">dashboard</i>Siswa
+    <a href="<?php echo site_url('homeadmin/siswa')?>"><i class="material-icons blue-text">dashboard</i>Siswa
     </a>
 </li>
 <li>
-    <a href="<?php echo site_url('homepage/buku')?>"><i class="material-icons blue-text">dashboard</i>Buku
+    <a href="<?php echo site_url('homeadmin/buku')?>"><i class="material-icons blue-text">dashboard</i>Buku
     </a>
 </li>
 
@@ -117,18 +117,8 @@
 <div class="content">
   <div class="row">
     <!-- <div class="col s12 l4 m4"> -->
-      <!-- <div class="card-panel center"> -->
-       
-      <div class="container">
-    <br>  <p class="text-center">Perpustakaan</a></p>
-    <br>  <p class="text-center">
-      <?php 
-          $info= $this->session->flashdata('gagal_edit');
-          if(!empty($info)){
-              echo $info;
-          }
-      ?>
-    </a></p>
+      <!-- <div class="card-panel center"> -->       
+    <div class="container">   
     <hr>
 
     <div class="card bg-light">
@@ -141,7 +131,7 @@
         <?php foreach($petugas as $u){
             ?>
         
-        <form class="form-signin" action="<?php echo site_url('homepage/update_petugas') ?>" method="post">
+        <form class="form-signin" action="<?php echo site_url('homeadmin/update_petugas') ?>" method="post">
         <table>
             <tr>
                 <td>
@@ -227,7 +217,15 @@
                 <td>                        
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block">Edit</button>
-                  </div> <!-- form-group// -->                  
+                  </div> <!-- form-group// -->    
+                    <br>  <p class="text-center">
+                      <?php 
+                          $info= $this->session->flashdata('gagal_edit');
+                          if(!empty($info)){
+                              echo $info;
+                          }
+                      ?>
+                    </a></p>              
                 </td>
             </tr>
 
@@ -245,7 +243,7 @@
 
 </div>
 <div class="fixed-action-btn">
-  <a href="<?php echo site_url('homepage/tambah_transaksi') ?>" class="btn-floating btn-large red white-text pulse tooltipped" data-tooltip="Add New Post" data-position="left"><i class="material-icons ">edit</i></a>
+  <a href="<?php echo site_url('homeadmin/tambah_transaksi') ?>" class="btn-floating btn-large red white-text pulse tooltipped" data-tooltip="Add New Post" data-position="left"><i class="material-icons ">edit</i></a>
 </div>
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/jquery.js"></script>

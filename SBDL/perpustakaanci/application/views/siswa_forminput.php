@@ -78,21 +78,21 @@
   </li>
 
   <li>
-  <a href="<?php echo site_url('homepage/profil')?>"><i class="material-icons blue-text">dashboard</i>My profil
+  <a href="<?php echo site_url('homeadmin/profil')?>"><i class="material-icons blue-text">dashboard</i>My profil
   </a>
 </li>
 
 <li>
-    <a href="<?php echo site_url('homepage/transaksi')?>"><i class="material-icons blue-text">dashboard</i>Transaksi
+    <a href="<?php echo site_url('homeadmin/transaksi')?>"><i class="material-icons blue-text">dashboard</i>Transaksi
     </a>
 </li>
 
 <li>
-    <a href="<?php echo site_url('homepage/siswa')?>"><i class="material-icons blue-text">dashboard</i>Siswa
+    <a href="<?php echo site_url('homeadmin/siswa')?>"><i class="material-icons blue-text">dashboard</i>Siswa
     </a>
 </li>
 <li>
-    <a href="<?php echo site_url('homepage/buku')?>"><i class="material-icons blue-text">dashboard</i>Buku
+    <a href="<?php echo site_url('homeadmin/buku')?>"><i class="material-icons blue-text">dashboard</i>Buku
     </a>
 </li>
 <div class="divider"></div>
@@ -116,7 +116,7 @@
         <p class="divider-text">
             <span class="bg-light">*</span>
         </p>
-        <form class="form-signin" action="<?php echo site_url('homepage/tambah_aksi_siswa') ?>" method="post">
+        <form class="form-signin" action="<?php echo site_url('homeadmin/tambah_aksi_siswa') ?>" method="post">
         <div class="form-group input-group">
             <input name="nis" class="form-control" placeholder="NIS" type="text">
         </div> <!-- form-group// -->
@@ -149,7 +149,7 @@
 </div>
 
 <div class="fixed-action-btn">
-  <a href="<?php echo site_url('homepage/tambah_transaksi') ?>" class="btn-floating btn-large red white-text pulse tooltipped" data-tooltip="Add New Post" data-position="left"><i class="material-icons ">edit</i></a>
+  <a href="<?php echo site_url('homeadmin/tambah_transaksi') ?>" class="btn-floating btn-large red white-text pulse tooltipped" data-tooltip="Add New Post" data-position="left"><i class="material-icons ">edit</i></a>
 </div>
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/jquery.js"></script>

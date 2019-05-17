@@ -1,5 +1,5 @@
 <?php
-    class homepage extends CI_Controller{
+    class homeadmin extends CI_Controller{
         public function __construct(){
             parent::__construct();
             //$this->load->library('grocery_CRUD');
@@ -16,7 +16,7 @@
                 );
                 $this->load->model('model_petugas');
                 $data['petugas'] = $this->model_petugas->edit_data($where,'petugas')->result();
-                // redirect('homepage');
+                // redirect('homeadmin');
                 $this->load->view('myprofil',$data);
             }
             
@@ -27,7 +27,7 @@
             );
             $this->load->model('model_petugas');
             $data['petugas'] = $this->model_petugas->edit_data($where,'petugas')->result();
-            // redirect('homepage');
+            // redirect('homeadmin');
             $this->load->view('myprofil',$data);
             
         }
@@ -58,11 +58,11 @@
                 );
                 $this->load->model('model_petugas');
                 $this->model_buku->update_data($where,$data,'petugas');
-                redirect('homepage/profil');
+                redirect('homeadmin/profil');
             }else{
-                $this->session->set_flashdata('gagal_edit','Update gagal');
+                $this->session->set_flashdata('gagal_edit','Update gagal password harus diisi');
                 
-                redirect('homepage/profil');
+                redirect('homeadmin/profil');
             }
             
             
@@ -92,13 +92,13 @@
             );
             $this->load->model('model_transaksi');
             $this->model_transaksi->input_data($data,'transaksi');
-            redirect('homepage/transaksi');
+            redirect('homeadmin/transaksi');
         }
         function hapus_transaksi($id_transaksi){
             $where=array('id_transaksi'=>$id_transaksi);
             $this->load->model(model_transaksi);
             $this->model_transaksi->hapus_data($where,'transaksi');
-            redirect('homepage/transaksi');
+            redirect('homeadmin/transaksi');
         }
         function edit_transaksi($id_transaksi){
             $where = array('id_transaksi'=>$id_transaksi);
@@ -125,7 +125,7 @@
             );
             $this->load->model('model_transaksi');
             $this->model_transaksi->update_data($where,$data,'transaksi');
-            redirect('homepage/transaksi');
+            redirect('homeadmin/transaksi');
             
         }
         function siswa(){
@@ -152,13 +152,13 @@
             );
             $this->load->model('model_siswa');
             $this->model_siswa->input_data($data,'siswa');
-            redirect('homepage/siswa');
+            redirect('homeadmin/siswa');
         }
         function hapus_siswa($id_siswa){
             $where=array('id_siswa'=>$id_siswa);
             $this->load->model(model_siswa);
             $this->model_siswa->hapus_data($where,'siswa');
-            redirect('homepage/siswa');
+            redirect('homeadmin/siswa');
         }
         function edit_siswa($id_siswa){
             $where = array('id_siswa'=>$id_siswa);
@@ -185,7 +185,7 @@
             );
             $this->load->model('model_siswa');
             $this->model_siswa->update_data($where,$data,'siswa');
-            redirect('homepage/siswa');
+            redirect('homeadmin/siswa');
             
         }
         function buku(){
@@ -215,13 +215,13 @@
             );
             $this->load->model('model_buku');
             $this->model_buku->input_data($data,'buku');
-            redirect('homepage/buku');
+            redirect('homeadmin/buku');
         }
         function hapus_buku($id_buku){
             $where=array('id_buku'=>$id_buku);
             $this->load->model(model_buku);
             $this->model_buku->hapus_data($where,'buku');
-            redirect('homepage/buku');
+            redirect('homeadmin/buku');
         }
         function edit_buku($id_buku){
             $where = array('id_buku'=>$id_buku);
@@ -248,7 +248,7 @@
             );
             $this->load->model('model_buku');
             $this->model_buku->update_data($where,$data,'buku');
-            redirect('homepage/buku');
+            redirect('homeadmin/buku');
             
         }
         function logout(){

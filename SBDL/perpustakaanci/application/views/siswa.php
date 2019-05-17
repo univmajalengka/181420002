@@ -64,21 +64,21 @@
   </li>
 
   <li>
-  <a href="<?php echo site_url('homepage/profil')?>"><i class="material-icons blue-text">dashboard</i>My profil
+  <a href="<?php echo site_url('homeadmin/profil')?>"><i class="material-icons blue-text">dashboard</i>My profil
   </a>
 </li>
 
 <li>
-    <a href="<?php echo site_url('homepage/transaksi')?>"><i class="material-icons blue-text">dashboard</i>Transaksi
+    <a href="<?php echo site_url('homeadmin/transaksi')?>"><i class="material-icons blue-text">dashboard</i>Transaksi
     </a>
 </li>
 
 <li>
-    <a href="<?php echo site_url('homepage/siswa')?>"><i class="material-icons blue-text">dashboard</i>Siswa
+    <a href="<?php echo site_url('homeadmin/siswa')?>"><i class="material-icons blue-text">dashboard</i>Siswa
     </a>
 </li>
 <li>
-    <a href="<?php echo site_url('homepage/buku')?>"><i class="material-icons blue-text">dashboard</i>Buku
+    <a href="<?php echo site_url('homeadmin/buku')?>"><i class="material-icons blue-text">dashboard</i>Buku
     </a>
 </li>
 <div class="divider"></div>
@@ -95,7 +95,7 @@
         <div class="row col-md-6 col-md-offset-2 custyle">
         <table class="table table-striped custab">
         <thead>
-        <a href="<?php echo site_url('homepage/tambah_siswa') ?>" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new Siswa</a>
+        <a href="<?php echo site_url('homeadmin/tambah_siswa') ?>" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new Siswa</a>
             <tr>
                 <th>ID Siswa</th>
                 <th>NIS</th>
@@ -117,8 +117,8 @@
                     <td><?php echo $s->tgl_lahir ?></td>
                     <td><?php echo $s->kelas ?></td>
                     <td class="text-center">
-                        <a class='btn btn-info btn-xs' href="<?php echo site_url('homepage/edit_siswa/') .$s->id_siswa ?>"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
-                        <a href="<?php echo site_url('homepage/hapus_siswa/') .$s->id_siswa ?>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                        <a class='btn btn-info btn-xs' href="<?php echo site_url('homeadmin/edit_siswa/') .$s->id_siswa ?>"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
+                        <a href="<?php echo site_url('homeadmin/hapus_siswa/') .$s->id_siswa ?>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
                 </tr>
                 <?php } ?>
         </table>
@@ -127,7 +127,7 @@
   </div>
 </div>
 <div class="fixed-action-btn">
-  <a href="<?php echo site_url('homepage/tambah_transaksi') ?>" class="btn-floating btn-large red white-text pulse tooltipped" data-tooltip="Add New Post" data-position="left"><i class="material-icons ">edit</i></a>
+  <a href="<?php echo site_url('homeadmin/tambah_transaksi') ?>" class="btn-floating btn-large red white-text pulse tooltipped" data-tooltip="Add New Post" data-position="left"><i class="material-icons ">edit</i></a>
 </div>
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/jquery.js"></script>
