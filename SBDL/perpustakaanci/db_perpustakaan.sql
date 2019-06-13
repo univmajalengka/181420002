@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Bulan Mei 2019 pada 09.01
+-- Waktu pembuatan: 13 Jun 2019 pada 23.22
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -29,77 +29,54 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `buku` (
-  `id_buku` varchar(8) NOT NULL,
-  `judul` varchar(53) NOT NULL,
-  `pengarang` varchar(35) NOT NULL,
-  `tgl` date NOT NULL,
-  `jml` int(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `kode_buku` varchar(5) NOT NULL,
+  `judul` varchar(100) DEFAULT NULL,
+  `pengarang` varchar(50) DEFAULT NULL,
+  `klasifikasi` varchar(100) DEFAULT NULL,
+  `image` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data untuk tabel `buku`
 --
 
-INSERT INTO `buku` (`id_buku`, `judul`, `pengarang`, `tgl`, `jml`) VALUES
-('19A40001', 'Theory Newton', 'J.G', '2019-03-08', 1),
-('19A40002', 'Matematika diskret', 'o.n', '2019-03-08', 1),
-('19A40003', 'Kalkulus', 'lop', '2019-03-08', 1),
-('19A40004', 'Kalkulus lanjut', 'junk', '2019-03-08', 1),
-('19A40005', 'Probabilitas', 'rand', '2019-03-08', 1),
-('19A40006', 'Statistika', 'Lisa', '2019-03-08', 1),
-('19A40007', 'Fisika dasar', 'kope', '2019-03-08', 1),
-('19A40008', 'Gelombang', 'Rone', '2019-03-08', 1),
-('19A40009', 'Elekra', 'Iwe', '2019-03-08', 1),
-('19A40010', 'Termadinamika', 'J.Ga', '2019-03-08', 1);
+INSERT INTO `buku` (`kode_buku`, `judul`, `pengarang`, `klasifikasi`, `image`) VALUES
+('7706', 'Membuat Website Portal Berita Dengan Laravel', 'Agusasaputra', '<p>dfsdf</p>', 'membuat-website-portal-berita-dengan-laravel.jpg'),
+('7707', 'Trik seo & Security CodeIgniter', 'Anhar', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has</p>', 'trik-seo--security-codeigniter1.jpg'),
+('7711', 'CSS & HTML Web Design', 'Panji Asmoro', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been t', 'css--html-web-design.jpg'),
+('7712', 'HTML, CSS & JavaScript', 'Lukmanul Hakim', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been t', 'html-css--javascript.jpg'),
+('7714', 'Seminggu Belajar Laravel', 'Rahmat Awaludin', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been t', 'seminggu-belajar-laravel.JPG'),
+('7715', 'Menyelami Framework Laravel', 'Rahmat Awaludin', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been&n', 'menyelami-framework-laravel.JPG'),
+('7723', 'Computer Graphic Design', 'Hendi Hendratman', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has</p>', 'computer-graphic-design1.jpg'),
+('7726', 'Responsive Web Design With Bootstrap', 'Panji Asmoro', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has</p>', 'responsive-web-design-with-bootstrap.jpg'),
+('7745', 'PHP Advanced', 'Agussalim', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has</p>', 'php-advanced1.jpg'),
+('7794', 'Cantik itu Luka by Eka Kurniawan', 'Eka Kurniawan', '<div class=\"MsoNormal\" style=\"font-family: Nobile; font-size: 15.4px;\">fewwew</div>', 'cantik-itu-luka-by-eka-kurniawan.jpg'),
+('7799', 'DILAN dia Adalah Dilanku Tahun 1990', 'Pidi Baiq', '<p>sdsdsdd</p>', 'dilan-dia-adalah-dilanku-tahun-1990.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `denda`
+-- Struktur dari tabel `pengembalian`
 --
 
-CREATE TABLE `denda` (
-  `id_denda` int(8) NOT NULL,
-  `telat` varchar(25) NOT NULL,
-  `biaya` int(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `pengembalian` (
+  `id_transaksi` varchar(12) DEFAULT NULL,
+  `tgl_pengembalian` date DEFAULT NULL,
+  `denda` varchar(2) DEFAULT NULL,
+  `nominal` double DEFAULT NULL,
+  `id_petugas` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `denda`
+-- Dumping data untuk tabel `pengembalian`
 --
 
-INSERT INTO `denda` (`id_denda`, `telat`, `biaya`) VALUES
-(1, '1 minggu', 5000),
-(2, '2 minggu', 7000),
-(3, '1 bulan', 10000),
-(4, 'lebih 1 bulan', 20000);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `genre`
---
-
-CREATE TABLE `genre` (
-  `id_genre` int(8) NOT NULL,
-  `genre` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `genre`
---
-
-INSERT INTO `genre` (`id_genre`, `genre`) VALUES
-(1, 'Misteri'),
-(2, 'Karya ilmiah'),
-(3, 'Novel Fiksi'),
-(4, 'Kesehatan'),
-(5, 'MIPA'),
-(6, 'Sejarah'),
-(7, 'Geografi'),
-(8, 'Tata negara'),
-(9, 'Seni'),
-(10, 'Budaya');
+INSERT INTO `pengembalian` (`id_transaksi`, `tgl_pengembalian`, `denda`, `nominal`, `id_petugas`) VALUES
+('20180411001', '2018-04-19', 'Y', 10000, 7),
+('20180417004', '2018-04-19', 'N', 0, 7),
+('20180411002', '2018-04-21', 'Y', 10000, 7),
+('20190608005', '2019-06-08', 'N', 0, 9),
+('20190614006', '2019-06-14', 'N', 0, 7);
 
 -- --------------------------------------------------------
 
@@ -108,64 +85,19 @@ INSERT INTO `genre` (`id_genre`, `genre`) VALUES
 --
 
 CREATE TABLE `petugas` (
-  `id_petugas` int(8) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `username` varchar(35) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `tgl_lahir` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id_petugas` int(11) NOT NULL,
+  `username` varchar(100) DEFAULT NULL,
+  `full_name` varchar(100) DEFAULT NULL,
+  `password` varchar(60) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data untuk tabel `petugas`
 --
 
-INSERT INTO `petugas` (`id_petugas`, `email`, `username`, `password`, `nama`, `tgl_lahir`) VALUES
-(1, 'jhonson@gmail.com', 'jhonson', '177544aa797af6f322f8caa5e80e7f24', 'jhonson', '2019-03-11'),
-(2, 'grock@gmail.com', 'grock', '177544aa797af6f322f8caa5e80e7f24', 'grock', '2019-03-11'),
-(3, 'mino@gmail.com', 'mino', '177544aa797af6f322f8caa5e80e7f24', 'mino', '2019-03-11'),
-(4, 'hilda@gmail.com', 'hilda', '177544aa797af6f322f8caa5e80e7f24', 'hilda', '2019-03-11'),
-(5, 'kaja@gmail.com', 'kaja', '177544aa797af6f322f8caa5e80e7f24', 'kaja', '2019-03-11'),
-(6, 'lollita@gmail.com', 'lollita', '177544aa797af6f322f8caa5e80e7f24', 'lollita', '2019-03-11'),
-(7, 'moscov@gmail.com', 'moscov', '177544aa797af6f322f8caa5e80e7f24', 'moscov', '2019-03-11'),
-(8, 'kagura@gmail.com', 'kagura', '177544aa797af6f322f8caa5e80e7f24', 'kagura', '2019-03-11'),
-(9, 'leo@gmail.com', 'leo', '177544aa797af6f322f8caa5e80e7f24', 'leo', '2019-03-11'),
-(10, 'martis@gmail.com', 'martis', '177544aa797af6f322f8caa5e80e7f24', 'martis', '2019-03-11'),
-(31, 'iwan.wansyur20@gmail.com', 'rty', 'd41d8cd98f00b204e9800998ecf8427e', 'iwan wansyur', '2019-05-06'),
-(32, 'ssssssssssssssd@gmail.com', 'ione', 'd41d8cd98f00b204e9800998ecf8427e', 'sssssssssssssssd', '2019-05-05'),
-(33, 'qwerg@gmail.com', 'qwerg', 'd41d8cd98f00b204e9800998ecf8427e', 'qwerg', '2019-05-06'),
-(34, 'qwerg@gmail.com', 'qwerg', 'PASSWORD(\"\")', 'qwerg', '2019-05-06'),
-(35, 'qwerg@gmail.com', 'qwerg', 'd41d8cd98f00b204e9800998ecf8427e', 'qwerg', '2019-05-06'),
-(36, 'fgh@gmail.com', 'fgh', 'fgh', 'fgh', '2019-05-07'),
-(37, 'jo@gmail.com', 'jo', '674f33841e2309ffdd24c85dc3b999de', 'jo', '2001-10-10'),
-(38, 'sed@gmail.com', 'sed', '177544aa797af6f322f8caa5e80e7f24', 'sed', '2001-12-12');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `rak`
---
-
-CREATE TABLE `rak` (
-  `id_rak` int(8) NOT NULL,
-  `kode_rak` varchar(8) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `rak`
---
-
-INSERT INTO `rak` (`id_rak`, `kode_rak`) VALUES
-(1, 'A00B1001'),
-(2, 'A00B1002'),
-(3, 'A00B1003'),
-(4, 'A00B1004'),
-(5, 'A00B1005'),
-(7, 'A00B1006'),
-(8, 'A00B1007'),
-(9, 'A00B1008'),
-(10, 'A00B1009'),
-(11, 'A00B1010');
+INSERT INTO `petugas` (`id_petugas`, `username`, `full_name`, `password`) VALUES
+(7, 'admin', 'Admin Perpus', '$2y$05$0RfFGKdD.I9/9SRZd9../.kIQg7pwgDxhICT0t1aPZh29Ia2oRA3u'),
+(8, 'wan', 'iwan', '$2y$05$HnlGUw18z5sgK3jOHr/QpOS4NFB8tD1iHInC5Brh8XBcAEOiUs6M6');
 
 -- --------------------------------------------------------
 
@@ -174,29 +106,43 @@ INSERT INTO `rak` (`id_rak`, `kode_rak`) VALUES
 --
 
 CREATE TABLE `siswa` (
-  `id_siswa` int(8) NOT NULL,
-  `nis` varchar(25) NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `alamat` varchar(255) NOT NULL,
-  `tgl_lahir` date NOT NULL,
-  `kelas` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `nis` varchar(10) NOT NULL,
+  `nama` varchar(50) DEFAULT NULL,
+  `jk` varchar(2) DEFAULT NULL,
+  `ttl` date DEFAULT NULL,
+  `kelas` varchar(10) DEFAULT NULL,
+  `image` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data untuk tabel `siswa`
 --
 
-INSERT INTO `siswa` (`id_siswa`, `nis`, `nama`, `alamat`, `tgl_lahir`, `kelas`) VALUES
-(1, '1234567801', 'joko', 'desa tonjong', '2002-09-04', '10'),
-(2, '1234567802', 'Doni', 'Karayunan', '2002-09-04', '10'),
-(3, '1234567810', 'Lola', 'Desa Cigasong', '2002-09-04', '10'),
-(4, '1234567803', 'Klodia', 'Desa Cigasong', '2002-09-04', '10'),
-(5, '1234567804', 'Hook', 'Desa Sindangkasih', '2002-09-04', '10'),
-(6, '1234567805', 'koko', 'Desa Sukaraja', '2002-09-04', '10'),
-(7, '1234567806', 'Juju', 'Desa Ranji Kulon', '2002-09-04', '10'),
-(8, '1234567807', 'Adimas', 'Desa Tonjong', '2002-09-04', '10'),
-(9, '1234567808', 'Sinta', 'Desa Sindangkasih', '2002-09-04', '10'),
-(10, '1234567809', 'Hunter', 'Desa Tonjong', '0000-00-00', '10');
+INSERT INTO `siswa` (`nis`, `nama`, `jk`, `ttl`, `kelas`, `image`) VALUES
+('121216', 'Baim', 'L', '2000-01-01', 'X1', 'user1.jpg'),
+('121217', 'Cahyo', 'L', '2000-01-01', 'X1', 'user2.jpg'),
+('121218', 'Rian', 'L', '2000-01-01', 'X1', 'user3.jpg'),
+('121219', 'Naus', 'L', '2000-01-01', 'X1', 'user4.jpg'),
+('121220', 'Tole', 'L', '2000-01-01', 'X1', 'user5.jpg'),
+('121224', 'Nova', 'P', '2000-01-01', 'X1', 'nova.jpg'),
+('121226', 'Fatih', 'L', '2000-01-01', 'X1', 'fatih.png'),
+('121227', 'Yoga', 'L', '2000-01-01', 'X1', 'yoga.jpg'),
+('121228', 'Apri', 'L', '2000-01-01', 'X1', 'apri.jpg'),
+('121229', 'Akila', 'L', '2000-01-01', 'X3', 'akila.jpg'),
+('121230', 'Bimo', 'L', '2000-01-01', 'X2', 'bimo.jpg'),
+('121231', 'sada', 'L', '1999-06-01', 'X3', 'sada.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tmp`
+--
+
+CREATE TABLE `tmp` (
+  `kode_buku` varchar(5) NOT NULL,
+  `judul` varchar(100) NOT NULL,
+  `pengarang` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -205,29 +151,30 @@ INSERT INTO `siswa` (`id_siswa`, `nis`, `nama`, `alamat`, `tgl_lahir`, `kelas`) 
 --
 
 CREATE TABLE `transaksi` (
-  `id_transaksi` int(11) NOT NULL,
-  `id_petugas` int(8) NOT NULL,
-  `id_pinjam` int(25) NOT NULL,
-  `id_siswa` int(8) NOT NULL,
-  `id_buku` varchar(8) NOT NULL,
-  `judul` varchar(53) NOT NULL,
-  `tgl_pinjam` date NOT NULL,
-  `tgl_kembali` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id_transaksi` varchar(12) DEFAULT NULL,
+  `nis` varchar(10) DEFAULT NULL,
+  `kode_buku` varchar(5) DEFAULT NULL,
+  `tanggal_pinjam` date DEFAULT NULL,
+  `tanggal_kembali` date DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `id_petugas` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data untuk tabel `transaksi`
 --
 
-INSERT INTO `transaksi` (`id_transaksi`, `id_petugas`, `id_pinjam`, `id_siswa`, `id_buku`, `judul`, `tgl_pinjam`, `tgl_kembali`) VALUES
-(2, 1, 2, 2, '', '', '0000-00-00', '0000-00-00'),
-(3, 1, 3, 3, '', '', '0000-00-00', '0000-00-00'),
-(4, 1, 4, 3, '', '', '0000-00-00', '0000-00-00'),
-(5, 1, 5, 5, '', '', '0000-00-00', '0000-00-00'),
-(6, 1, 6, 6, '', '', '0000-00-00', '0000-00-00'),
-(7, 1, 7, 7, '', '', '0000-00-00', '0000-00-00'),
-(8, 1, 8, 8, '', '', '0000-00-00', '0000-00-00'),
-(9, 1, 9, 9, '', '', '0000-00-00', '0000-00-00');
+INSERT INTO `transaksi` (`id_transaksi`, `nis`, `kode_buku`, `tanggal_pinjam`, `tanggal_kembali`, `status`, `id_petugas`) VALUES
+('20180411001', '121221', '7706', '2018-04-11', '2018-04-18', 'Y', 7),
+('20180411001', '121221', '7723', '2018-04-11', '2018-04-18', 'Y', 7),
+('20180411002', '121210', '7726', '2018-04-11', '2018-04-18', 'Y', 7),
+('20180411003', '121217', '7706', '2018-04-11', '2018-04-18', 'N', 7),
+('20180411003', '121217', '7711', '2018-04-11', '2018-04-18', 'N', 7),
+('20180411003', '121217', '7715', '2018-04-11', '2018-04-18', 'N', 7),
+('20180417004', '121209', '7611', '2018-04-17', '2018-04-24', 'Y', 7),
+('20190608005', '121210', '7611', '2019-06-08', '2019-06-15', 'Y', 9),
+('20190608005', '121210', '7723', '2019-06-08', '2019-06-15', 'Y', 9),
+('20190614006', '121229', '7799', '2019-06-14', '2019-06-21', 'Y', 7);
 
 --
 -- Indexes for dumped tables
@@ -237,19 +184,7 @@ INSERT INTO `transaksi` (`id_transaksi`, `id_petugas`, `id_pinjam`, `id_siswa`, 
 -- Indeks untuk tabel `buku`
 --
 ALTER TABLE `buku`
-  ADD PRIMARY KEY (`id_buku`);
-
---
--- Indeks untuk tabel `denda`
---
-ALTER TABLE `denda`
-  ADD PRIMARY KEY (`id_denda`);
-
---
--- Indeks untuk tabel `genre`
---
-ALTER TABLE `genre`
-  ADD PRIMARY KEY (`id_genre`);
+  ADD PRIMARY KEY (`kode_buku`);
 
 --
 -- Indeks untuk tabel `petugas`
@@ -258,65 +193,20 @@ ALTER TABLE `petugas`
   ADD PRIMARY KEY (`id_petugas`);
 
 --
--- Indeks untuk tabel `rak`
---
-ALTER TABLE `rak`
-  ADD PRIMARY KEY (`id_rak`);
-
---
 -- Indeks untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  ADD PRIMARY KEY (`id_siswa`);
-
---
--- Indeks untuk tabel `transaksi`
---
-ALTER TABLE `transaksi`
-  ADD PRIMARY KEY (`id_transaksi`),
-  ADD KEY `fktransaksi_id_anggota` (`id_siswa`),
-  ADD KEY `fktransaksi_id_petugas` (`id_petugas`),
-  ADD KEY `fktransaksi_id_pinjam` (`id_pinjam`);
+  ADD PRIMARY KEY (`nis`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT untuk tabel `denda`
---
-ALTER TABLE `denda`
-  MODIFY `id_denda` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT untuk tabel `genre`
---
-ALTER TABLE `genre`
-  MODIFY `id_genre` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
 -- AUTO_INCREMENT untuk tabel `petugas`
 --
 ALTER TABLE `petugas`
-  MODIFY `id_petugas` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
-
---
--- AUTO_INCREMENT untuk tabel `rak`
---
-ALTER TABLE `rak`
-  MODIFY `id_rak` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT untuk tabel `siswa`
---
-ALTER TABLE `siswa`
-  MODIFY `id_siswa` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT untuk tabel `transaksi`
---
-ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_petugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
