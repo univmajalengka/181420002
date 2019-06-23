@@ -7,6 +7,7 @@
 
 ## Preview
 ![designer](https://raw.githubusercontent.com/univmajalengka/181420002/master/SS/database.PNG) <br />
+![designer](https://raw.githubusercontent.com/univmajalengka/181420002/master/SS/create_view_3.PNG) <br />
 
 
 

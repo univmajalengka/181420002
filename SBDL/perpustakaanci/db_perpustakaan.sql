@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Jun 2019 pada 23.22
+-- Waktu pembuatan: 23 Jun 2019 pada 19.06
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -52,6 +52,33 @@ INSERT INTO `buku` (`kode_buku`, `judul`, `pengarang`, `klasifikasi`, `image`) V
 ('7745', 'PHP Advanced', 'Agussalim', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has</p>', 'php-advanced1.jpg'),
 ('7794', 'Cantik itu Luka by Eka Kurniawan', 'Eka Kurniawan', '<div class=\"MsoNormal\" style=\"font-family: Nobile; font-size: 15.4px;\">fewwew</div>', 'cantik-itu-luka-by-eka-kurniawan.jpg'),
 ('7799', 'DILAN dia Adalah Dilanku Tahun 1990', 'Pidi Baiq', '<p>sdsdsdd</p>', 'dilan-dia-adalah-dilanku-tahun-1990.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in struktur untuk tampilan `daftar_pengembalian`
+-- (Lihat di bawah untuk tampilan aktual)
+--
+CREATE TABLE `daftar_pengembalian` (
+`id_transaksi` varchar(12)
+,`id_petugas` int(11)
+,`nama_petugas` varchar(100)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in struktur untuk tampilan `daftar_transaksi`
+-- (Lihat di bawah untuk tampilan aktual)
+--
+CREATE TABLE `daftar_transaksi` (
+`id_transaksi` varchar(12)
+,`NIS` varchar(10)
+,`Nama_Siswa` varchar(50)
+,`kode_buku` varchar(5)
+,`id_petugas` int(11)
+,`nama_petugas` varchar(100)
+);
 
 -- --------------------------------------------------------
 
@@ -174,7 +201,26 @@ INSERT INTO `transaksi` (`id_transaksi`, `nis`, `kode_buku`, `tanggal_pinjam`, `
 ('20180417004', '121209', '7611', '2018-04-17', '2018-04-24', 'Y', 7),
 ('20190608005', '121210', '7611', '2019-06-08', '2019-06-15', 'Y', 9),
 ('20190608005', '121210', '7723', '2019-06-08', '2019-06-15', 'Y', 9),
-('20190614006', '121229', '7799', '2019-06-14', '2019-06-21', 'Y', 7);
+('20190614006', '121229', '7799', '2019-06-14', '2019-06-21', 'Y', 7),
+('20190614007', '121216', '7794', '2019-06-14', '2019-06-21', 'N', 8);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur untuk view `daftar_pengembalian`
+--
+DROP TABLE IF EXISTS `daftar_pengembalian`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `daftar_pengembalian`  AS  select `a`.`id_transaksi` AS `id_transaksi`,`b`.`id_petugas` AS `id_petugas`,`b`.`full_name` AS `nama_petugas` from (`pengembalian` `a` join `petugas` `b` on((`a`.`id_petugas` = `b`.`id_petugas`))) ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur untuk view `daftar_transaksi`
+--
+DROP TABLE IF EXISTS `daftar_transaksi`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `daftar_transaksi`  AS  select `a`.`id_transaksi` AS `id_transaksi`,`b`.`nis` AS `NIS`,`b`.`nama` AS `Nama_Siswa`,`c`.`kode_buku` AS `kode_buku`,`d`.`id_petugas` AS `id_petugas`,`d`.`full_name` AS `nama_petugas` from (((`transaksi` `a` join `siswa` `b` on((`a`.`nis` = `b`.`nis`))) join `buku` `c` on((`a`.`kode_buku` = `c`.`kode_buku`))) join `petugas` `d` on((`d`.`id_petugas` = `a`.`id_petugas`))) ;
 
 --
 -- Indexes for dumped tables
